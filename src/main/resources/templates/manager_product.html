@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>ADMIN</title>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Product Manager</h1>
+    </div>
+
+    <!-- ///////////////////////////// Nav-bar -->
+
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: dimgray;">
+
+        <a class="navbar-brand" th:href="@{/}">
+            <img src="images\videoimg2.png" alt="logo" style="width: 40px;">
+        </a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-item nav-link btn btn-info m-2" th:href="@{/login}">
+                    <span style="color: #ffffff">Product</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link btn btn-info m-2" th:href="@{/category_manage}">
+                    <span style="color: white">Category</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link btn btn-info m-2" th:href="@{/edit_web}">
+                    <span style="color: white">Edit Web Page</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ///////////////////////////// Create product -->
+
+    <div class="container">
+        <h1>Manage Products</h1>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/create_product}">Create new Product</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ///////////////////////////// Pill-toggle -->
+
+    <div class="container">
+        <br>
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#menu1">Menu 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+            <div id="menu1" class="container tab-pane fade"><br>
+
+            </div>
+
+            <div id="menu2" class="container tab-pane fade"><br>
+
+            </div>
+
+            <!-- ///////////////////////////// Tab pane #home -->
+
+            <div id="home" class="tab-pane active">
+                <br /><br />
+                <table border="1" cellpadding="5" class="table table-hover table-bordered">
+                    <thead class="thead-dark" style="text-align: center;">
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Rating</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="product : ${productList}">
+                            <td th:text="${product.name}">Name</td>
+                            <td th:text="${product.price}">Price</td>
+                            <td th:text="${product.price - (product.price * product.discount)}">Discount</td>
+                            <td th:text="${product.rating}">Rating</td>
+                            <td>
+                                <a th:href="@{'/edit' + ${product.id}}">Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form action="#"></form>
+            </div>
+        </div>
+</body>
+
+</html>

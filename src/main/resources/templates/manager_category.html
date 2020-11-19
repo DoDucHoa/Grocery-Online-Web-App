@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>ADMIN</title>
+</head>
+<body>
+<div align="center">
+    <h1>Product Manager</h1>
+</div>
+
+<!-- ///////////////////////////// Nav bar -->
+
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: dimgray;">
+
+    <a class="navbar-brand" th:href="@{/}">
+        <img src="images\videoimg2.png" alt="logo" style="width: 40px;">
+    </a>
+
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-item nav-link btn btn-info m-2" th:href="@{/login}">
+                <span style="color: #ffffff">Product</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link btn btn-info m-2" th:href="@{/category_manage}">
+                <span style="color: white">Category</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link btn btn-info m-2" th:href="@{/edit_web}">
+                <span style="color: white">Edit Web Page</span>
+            </a>
+        </li>
+      </ul>
+</nav>
+
+<!-- ///////////////////////////// Create new category -->
+
+<div class="container">
+    <h1>Manage Categories</h1>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Create new Category</a>
+        </li>
+    </ul>
+</div>
+
+<!-- ///////////////////////////// Table -->
+
+<br/><br/>
+<div class="container-fluid" style="width: 85%" >
+    <table border="1" cellpadding="5" class="table table-hover table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categoryList}">
+            <td th:text="${category.id}">Name</td>
+            <td th:text="${category.name}">Price</td>
+            <td>
+                <a th:href="@{'/edit' + ${category.id}}">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<form action="#"></form>
+</body>
+</html>

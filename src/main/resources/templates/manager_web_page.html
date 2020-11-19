@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>ADMIN</title>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Product Manager</h1>
+    </div>
+
+    <!-- ///////////////////////////// -->
+
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: dimgray;">
+
+        <a class="navbar-brand" th:href="@{/}">
+            <img src="images\videoimg2.png" alt="logo" style="width: 40px;">
+        </a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-item nav-link btn btn-info m-2" th:href="@{/login}">
+                    <span style="color: #ffffff">Product</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link btn btn-info m-2" th:href="@{/category_manage}">
+                    <span style="color: white">Category</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link btn btn-info m-2" th:href="@{/edit_web}">
+                    <span style="color: white">Edit Web Page</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ///////////////////////////// -->
+
+    <br /><br />
+    <div class="container">
+
+        <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#section1">Section 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#section2">Section 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#section3">Section 3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#section4">Section 4</a>
+            </li>
+        </ul>
+
+        <!-- ///////////////////////////// Tab pane #Section 1 -->
+        <div class="tab-content">
+            
+            <div id="section1" class="tab-pane active">
+                <br><br>
+                <div class="container p-4" style="width: 70%; border: 2px; border-style: groove">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" placeholder="Title Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Detail</label>
+                            <input type="text" class="form-control" placeholder="Detail">
+                        </div>
+
+                        <div class="form-group">
+                            <label>ThumbNail</label>
+                            <input type="file" class="form-control-file">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Rating</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions">
+                                <label class="form-check-label">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions">
+                                <label class="form-check-label">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions">
+                                <label class="form-check-label">3</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions">
+                                <label class="form-check-label">4</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions">
+                                <label class="form-check-label">5</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Short Brief</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="5"></textarea>
+                        </div>
+
+                        <div align="right">
+                            <input class="btn btn-primary" type="submit" value="Create">
+                            <input class="btn btn-secondary" type="reset" value="Reset">
+                            <a class="btn btn-danger" th:href="@{/login}"><span style="color: white">Cancel</span></a>
+                        </div>
+                    </form>
+                </div>
+                <br><br>
+            </div>
+
+            <div id="section2" class="tab-pane active"></div>
+            <div id="section3" class="tab-pane active"></div>
+            <div id="section4" class="tab-pane active"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
